@@ -1,0 +1,140 @@
+You previously converted the raw cell data of an Excel sheet into a
+structured JSON. That structured JSON was then checked by a separate
+QA pass against the raw data, and specific problems were found.
+
+Your job now is to produce a CORRECTED structured JSON that fixes
+every problem listed in the QA report below, while keeping everything
+that was already correct. Do not start over from scratch and do not
+introduce new problems - make the minimal set of changes needed so
+that, if the same QA pass ran again, it would find no issues.
+
+CRITICAL RULE - PRESERVE EXISTING NESTING EXACTLY. For every part of
+the previous structured output that the QA report does NOT mention a
+problem with, copy it into your output with the exact same key names,
+the exact same nesting depth, and the exact same parent/child
+relationships - character-for-character, not just "similar". Do not
+flatten nested objects into a shallower shape. Do not merge two
+sibling objects (like "INLET" and "OUTLET") into one. Do not remove a
+nesting level that was already correct just because you are adding a
+new field nearby. If "INLET" and "OUTLET" already exist as sibling
+keys under a side, they must STILL exist as sibling keys under that
+side in your output - adding a new field like "Fluid name" to that
+side's object means adding ANOTHER sibling key next to "INLET" and
+"OUTLET", never replacing or absorbing them.
+
+CRITICAL RULE - A JSON KEY IS ALWAYS A LABEL, NEVER A RAW NUMBER OR A
+BARE DATA VALUE. Every key you write must be a field/group/label name
+that came from a text cell in the raw data (things like "Fluid name",
+"Process data", "Operating temperature (Deg C)"). A raw cell whose
+value is a plain number (like 41, or 3.5) or a short data string
+(like "abc") must NEVER become a JSON key - numbers and short data
+values are only ever valid as VALUES, attached to the correct label
+key. If you catch yourself about to write something like
+"41": 41 or "abc": "abc" as a key-value pair, that is always wrong -
+stop and find the correct label key that number or short value
+actually belongs under instead (per the raw data's row/column, using
+RULE B logic: which row's label column, and which column's header
+path, that cell sits under).
+
+CRITICAL RULE - YOUR OUTPUT MUST ACTUALLY CHANGE, BUT ONLY IN THE
+PLACES THE QA REPORT OR THE RULES ABOVE REQUIRE. If the QA report
+lists any issue, fix it. If it lists no issues for a given part of the
+tree, that part must be byte-for-byte identical to the previous
+structured output - do not "helpfully" reorganize, rename, or flatten
+anything you weren't told is wrong.
+
+  Worked example - previous structured output has, for one side:
+    {
+      "Shell side": {
+        "INLET": {"Process data": {"Steam-kg/hr": null, "...": "..."}},
+        "OUTLET": {"Process data": {"Steam-kg/hr": null, "...": "..."}}
+      }
+    }
+  QA report's missing_cells includes:
+    {"cell": "B2", "value": "Fluid name"}
+    {"cell": "C2", "value": "abc"}
+  (raw data shows B2="Fluid name", C2="abc", C2 merged across the
+  Shell side's two data columns - i.e. a side-level value, per RULE 9
+  from the structuring instructions, NOT something that goes inside
+  INLET or OUTLET.)
+
+  CORRECT fix - add "Fluid name" as a NEW sibling key next to "INLET"
+  and "OUTLET", at the Shell side level, with value "abc". INLET and
+  OUTLET are untouched:
+    {
+      "Shell side": {
+        "Fluid name": "abc",
+        "INLET": {"Process data": {"Steam-kg/hr": null, "...": "..."}},
+        "OUTLET": {"Process data": {"Steam-kg/hr": null, "...": "..."}}
+      }
+    }
+
+  INCORRECT fix (do not do this) - flattening INLET/OUTLET away, or
+  turning B2/C2 into a key-value pair keyed by the raw value itself:
+    {
+      "Shell side": {
+        "Process data": {"Fluid name": "Fluid name", "abc": "abc", "Steam-kg/hr": null, "...": "..."}
+      }
+    }
+  This is wrong for three separate reasons: INLET/OUTLET nesting was
+  destroyed even though nothing said it was wrong, "Fluid name" was
+  used as both key and value (the label-as-its-own-value bug), and
+  "abc" (a raw data value) was used as a key (never allowed).
+
+CRITICAL RULE - CHECK FOR "LABEL USED AS ITS OWN VALUE" EVEN IF THE QA
+REPORT DIDN'T CATCH IT. If a leaf's key and its value are the same
+string (e.g. "Steam-kg/hr": "Steam-kg/hr"), that value is wrong
+regardless of whether the QA report flagged it. Fix it by finding the
+raw cell that actually holds the real data for that exact row/column
+combination and using its value instead - or null if no raw cell
+exists for that specific combination. Apply this check across the
+entire output, not just where the QA report pointed.
+
+CRITICAL RULE - CHECK KEY NAMES MATCH THEIR ROW'S ACTUAL LABEL, EVEN IF
+THE QA REPORT DIDN'T CATCH IT. If a key doesn't match what the raw
+data's label cell for that row actually says (for example a key
+spelled "vapour-process-kg/hr" appearing where the raw label column
+for that row actually says "Viscocity - CP"), rename the key to match
+the raw label exactly, keeping its value in place.
+
+How to use the rest of the QA report:
+- "missing_cells": add each of these cells' values into the output, at
+  whatever path correctly reflects that cell's row/column context, as
+  a NEW sibling key if no existing placeholder is there for it (see
+  the worked example above) - never by restructuring what's around it.
+- "hallucinated_values": remove these - they don't correspond to any
+  real cell. Do not just move them elsewhere; delete them, and use
+  null at that leaf if the leaf itself is structurally required.
+- "misattributed_values": move each of these to the path that matches
+  its actual source cell instead of where it currently sits. Also make
+  sure the leaf it moved OUT of is set correctly (null if nothing else
+  belongs there, or the correct value if some other cell belongs there).
+- "null_correctness_issues": for "should_have_value" entries, fill in
+  the correct value from the raw data. For "should_be_null" entries,
+  clear the incorrect value and use null instead.
+- "structural_issues": fix the nesting so it correctly reflects the
+  merge_range information in the raw data (column-group headers nest
+  as objects, row-group labels wrap every row in their merged range,
+  and a value merged across a whole sub-group for one row applies to
+  every sub-column in that row rather than being null for some of them).
+- "value_fidelity_issues": correct the value at that path to exactly
+  match the raw cell (no rounding, no rewording).
+- "cleanup_issues": restore the original raw values instead of any
+  renumbered/deduplicated/altered version - the output must be a
+  faithful transcription, not a cleaned-up one.
+
+The raw cell data remains the ground truth for everything - if the QA
+report and the raw data ever seem to disagree, trust the raw data. The
+raw data is also the ground truth for the CRITICAL RULES above about
+label-as-value and mismatched key names, even when the QA report is
+silent about them.
+
+Before finalizing your answer, re-check it against the CRITICAL RULES
+above one more time: does every part of the tree the QA report didn't
+mention still have its exact original nesting? Is every key a text
+label, never a bare number or a short raw data value? If either check
+fails, fix it before outputting.
+
+Output ONLY the corrected JSON. No prose, no markdown code fences, no
+explanation, no list of what you changed - just the corrected
+structured JSON itself.

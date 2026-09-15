@@ -1,0 +1,82 @@
+{
+  "Shell side": {
+    "INLET": {
+      "Process data": {
+        "Steam-kg/hr": "Steam-kg/hr",
+        "Steam condensate-kg/hr": null,
+        "liquid process-kg/hr": "liquid process-kg/hr",
+        "vapour-process-kg/hr": null,
+        "Operating temperature (Deg C)": "Operating temperature (Deg C)",
+        "Operating pressure (kg/cm2g)": "Operating pressure (kg/cm2g)",
+        "Design temperature (Deg C)": -0.25,
+        "Design pressure (kg/cm2 g)": 26
+      },
+      "Liquid": {
+        "Density - (kg/M3)": "Density - (kg/M3)",
+        "vapour-process-kg/hr": "vapour-process-kg/hr",
+        "Specific heat -kcal/kg": "Specific heat -kcal/kg",
+        "Enthalpy-kcal/kg": "Enthalpy-kcal/kg",
+        "Surface tension - NM": "Surface tension - NM"
+      }
+    },
+    "OUTLET": {
+      "Process data": {
+        "Steam-kg/hr": null,
+        "Steam condensate-kg/hr": "Steam condensate-kg/hr",
+        "liquid process-kg/hr": null,
+        "vapour-process-kg/hr": "vapour-process-kg/hr",
+        "Operating temperature (Deg C)": "Operating temperature (Deg C)",
+        "Operating pressure (kg/cm2g)": "Operating pressure (kg/cm2g)",
+        "Design temperature (Deg C)": -0.25,
+        "Design pressure (kg/cm2 g)": 26
+      },
+      "Liquid": {
+        "Density - (kg/M3)": null,
+        "vapour-process-kg/hr": null,
+        "Specific heat -kcal/kg": null,
+        "Enthalpy-kcal/kg": null,
+        "Surface tension - NM": null
+      }
+    }
+  },
+  "Tube side": {
+    "INLET": {
+      "Process data": {
+        "Steam-kg/hr": 800,
+        "Steam condensate-kg/hr": null,
+        "liquid process-kg/hr": 2000,
+        "vapour-process-kg/hr": null,
+        "Operating temperature (Deg C)": 140,
+        "Operating pressure (kg/cm2g)": 2.5,
+        "Design temperature (Deg C)": -0.18518518518518517,
+        "Design pressure (kg/cm2 g)": 26
+      },
+      "Liquid": {
+        "Density - (kg/M3)": null,
+        "vapour-process-kg/hr": null,
+        "Specific heat -kcal/kg": null,
+        "Enthalpy-kcal/kg": null,
+        "Surface tension - NM": null
+      }
+    },
+    "OUTLET": {
+      "Process data": {
+        "Steam-kg/hr": null,
+        "Steam condensate-kg/hr": 800,
+        "liquid process-kg/hr": null,
+        "vapour-process-kg/hr": 2000,
+        "Operating temperature (Deg C)": 140,
+        "Operating pressure (kg/cm2g)": 3.5,
+        "Design temperature (Deg C)": -0.18518518518518517,
+        "Design pressure (kg/cm2 g)": 26
+      },
+      "Liquid": {
+        "Density - (kg/M3)": "Density - (kg/M3)",
+        "vapour-process-kg/hr": "vapour-process-kg/hr",
+        "Specific heat -kcal/kg": "Specific heat -kcal/kg",
+        "Enthalpy-kcal/kg": "Enthalpy-kcal/kg",
+        "Surface tension - NM": "Surface tension - NM"
+      }
+    }
+  }
+}

@@ -1,0 +1,354 @@
+You are given the raw cell contents of one sheet from an Excel workbook,
+as a JSON list of non-empty cells. Each cell has: cell (A1 ref), row, col,
+value, and optionally formula and merge_range (a merged region this cell
+anchors, meaning its value visually spans that whole range).
+
+Your job: reconstruct what this sheet actually represents as clean,
+minimal JSON, the way a person reading the spreadsheet would describe it.
+
+RULE 1 - Simple table. One header row, repeating data rows -> a list of
+records (one object per data row, keyed by header).
+
+  Example:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "Item"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Qty"},
+    {"cell": "A2", "row": 2, "col": 1, "value": "Bolt"},
+    {"cell": "B2", "row": 2, "col": 2, "value": 10},
+    {"cell": "A3", "row": 3, "col": 1, "value": "Nut"},
+    {"cell": "B3", "row": 3, "col": 2, "value": 25}
+  ]
+  Correct output:
+  [
+    {"Item": "Bolt", "Qty": 10},
+    {"Item": "Nut", "Qty": 25}
+  ]
+
+RULE 2 - Key/value layout. A two-column sheet (label, value) -> a flat
+object, {"Label": "value", ...}.
+
+  Example:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "Name"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Acme Corp"},
+    {"cell": "A2", "row": 2, "col": 1, "value": "Date"},
+    {"cell": "B2", "row": 2, "col": 2, "value": "2024-01-01"}
+  ]
+  Correct output:
+  {"Name": "Acme Corp", "Date": "2024-01-01"}
+
+RULE 3 - Multiple blocks in one sheet. If a sheet contains more than one
+distinct block (separated by blank rows/columns, or by a shift from
+key/value layout to tabular layout), reflect each block under its OWN
+top-level key, shaped however fits that block best. Never mix objects
+with different key sets inside the same array.
+
+  Example - rows 1-2 are a key/value preamble, row 3 is blank, rows 4-6
+  are a table:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "Name"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Acme Corp"},
+    {"cell": "A2", "row": 2, "col": 1, "value": "Date"},
+    {"cell": "B2", "row": 2, "col": 2, "value": "2024-01-01"},
+    {"cell": "A4", "row": 4, "col": 1, "value": "Item"},
+    {"cell": "B4", "row": 4, "col": 2, "value": "Qty"},
+    {"cell": "A5", "row": 5, "col": 1, "value": "Widget"},
+    {"cell": "B5", "row": 5, "col": 2, "value": 3},
+    {"cell": "A6", "row": 6, "col": 1, "value": "Gadget"},
+    {"cell": "B6", "row": 6, "col": 2, "value": 5}
+  ]
+  Correct output:
+  {
+    "header": {"Name": "Acme Corp", "Date": "2024-01-01"},
+    "records": [
+      {"Item": "Widget", "Qty": 3},
+      {"Item": "Gadget", "Qty": 5}
+    ]
+  }
+  Note the preamble block and the table block get distinct top-level
+  keys ("header", "records") rather than being forced into one shape.
+
+RULE 4 - Full coverage is mandatory. Every non-empty cell in the input
+must show up in the output somewhere. Never drop a row just because
+some of its columns are blank, and never drop an oddly-shaped block
+(e.g. a title/revision footer) just because it doesn't match a table or
+key/value pattern - emit it as your best-effort object instead.
+
+  Example - a table where one row has a blank cell, plus a footer block
+  below it that isn't part of the table:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "S.No"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Item"},
+    {"cell": "C1", "row": 1, "col": 3, "value": "Qty"},
+    {"cell": "A2", "row": 2, "col": 1, "value": 1},
+    {"cell": "B2", "row": 2, "col": 2, "value": "Bolt"},
+    {"cell": "C2", "row": 2, "col": 3, "value": 10},
+    {"cell": "B3", "row": 3, "col": 2, "value": "Washer"},
+    {"cell": "A5", "row": 5, "col": 1, "value": "Prepared By"},
+    {"cell": "B5", "row": 5, "col": 2, "value": "John"},
+    {"cell": "A6", "row": 6, "col": 1, "value": "Approved By"},
+    {"cell": "B6", "row": 6, "col": 2, "value": "Jane"}
+  ]
+  Correct output:
+  {
+    "records": [
+      {"S.No": 1, "Item": "Bolt", "Qty": 10},
+      {"S.No": null, "Item": "Washer", "Qty": null}
+    ],
+    "footer": {"Prepared By": "John", "Approved By": "Jane"}
+  }
+  Row 3 (A3, C3 both blank) still produces exactly one record, with the
+  missing fields as null rather than being skipped. The footer block
+  (rows 5-6), which doesn't fit the table pattern above it, still gets
+  its own best-effort key rather than being silently dropped.
+
+RULE 5 - Preserve source values exactly. Do not renumber, deduplicate,
+or "correct" apparent data-entry errors (a repeated index, a duplicate
+label, etc.). The output is a faithful structural transcription, not a
+cleaned-up version.
+
+  Example - two rows accidentally share the same S.No and the same
+  Item text:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "S.No"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Item"},
+    {"cell": "A2", "row": 2, "col": 1, "value": 1},
+    {"cell": "B2", "row": 2, "col": 2, "value": "Bolt"},
+    {"cell": "A3", "row": 3, "col": 1, "value": 1},
+    {"cell": "B3", "row": 3, "col": 2, "value": "Bolt"}
+  ]
+  Correct output:
+  {
+    "records": [
+      {"S.No": 1, "Item": "Bolt"},
+      {"S.No": 1, "Item": "Bolt"}
+    ]
+  }
+  Do NOT renumber the second row's S.No to 2, and do NOT collapse the
+  two identical rows into one - both are transcribed exactly as found.
+
+RULE 6 - Formulas. If a cell has a formula, prefer its cached "value" as
+the data point (that's what the sheet displays); only surface the
+formula text itself if context suggests it matters (e.g. a labeled
+"Total"/"Formula" row or column).
+
+  Example - an ordinary computed total, no special "Formula" label:
+  Raw input:
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "Item"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "Total"},
+    {"cell": "A2", "row": 2, "col": 1, "value": "Widget"},
+    {"cell": "B2", "row": 2, "col": 2, "value": 30, "formula": "=10*3"}
+  ]
+  Correct output:
+  [
+    {"Item": "Widget", "Total": 30}
+  ]
+  The formula text is not surfaced here - "Total" is just an ordinary
+  column, so the cached value (30) is the data point. If the column
+  header were instead literally "Formula" or "Calculation", the formula
+  text itself would be worth including alongside the value, since the
+  sheet's own labeling signals the formula is the point of interest.
+
+RULE 7 - Merged header groups -> NESTED OBJECTS, never comma-joined
+keys. If a heading cell is merged across columns (a column-group label)
+and/or rows (a row-group label), represent it as a nested object:
+{"GroupLabel": {"SubHeading": value, ...}}. Apply this recursively if
+there are more than two header levels (group -> subgroup -> sub-heading).
+This applies whether or not the sheet also has a separate row-key column:
+  - WITH a row-key column: that key becomes the top-level key for the
+    whole nested object built from that row (Example A below).
+  - WITHOUT a row-key column (a pure crosstab of row-headers x
+    column-headers): the nesting follows the row-header hierarchy first,
+    then the column-header hierarchy, straight at the top level of the
+    output - there is no extra wrapping key (Example B below).
+
+  Within one row, the SAME group can nest differently depending on that
+  row's own merge state:
+  - sub-headings NOT merged with each other in this row: nest each
+    sub-heading that has a non-empty value under its own key; drop any
+    sub-heading whose cell is empty in this row (never a null
+    placeholder for it).
+  - sub-headings MERGED into one cell for this row: collapse straight to
+    {"GroupLabel": value}, no sub-heading key, since the single value
+    can't be attributed to one sub-heading.
+  - the group's cell(s) empty for this row (merged or not): drop the
+    group's key entirely from this row's object.
+
+  Example A (WITH a row-key column) - columns B:C are merged as
+  "Heading1" and D:E are merged as "Heading2" in row 1; row 2 gives
+  sub-headings SubHeading1..4 for B,C,D,E respectively; column A holds a
+  per-row key starting at row 3. Raw input:
+
+  [
+    {"cell": "B1", "row": 1, "col": 2, "value": "Heading1", "merge_range": "B1:C1"},
+    {"cell": "D1", "row": 1, "col": 4, "value": "Heading2", "merge_range": "D1:E1"},
+    {"cell": "B2", "row": 2, "col": 2, "value": "SubHeading1"},
+    {"cell": "C2", "row": 2, "col": 3, "value": "SubHeading2"},
+    {"cell": "D2", "row": 2, "col": 4, "value": "SubHeading3"},
+    {"cell": "E2", "row": 2, "col": 5, "value": "SubHeading4"},
+    {"cell": "A3", "row": 3, "col": 1, "value": "Key3"},
+    {"cell": "B3", "row": 3, "col": 2, "value": "B3 value"},
+    {"cell": "D3", "row": 3, "col": 4, "value": "D3 value"},
+    {"cell": "E3", "row": 3, "col": 5, "value": "E3 value"},
+    {"cell": "A4", "row": 4, "col": 1, "value": "Key4"},
+    {"cell": "B4", "row": 4, "col": 2, "value": "B4 value", "merge_range": "B4:C4"}
+  ]
+
+  Notes: in row 3, C3 is empty (absent from the raw list) so only
+  SubHeading1 survives under Heading1; B3/C3 are NOT merged with each
+  other. In row 4, B4:C4 IS merged (one shared value) and D4:E4 is
+  merged but empty (absent from the raw list).
+
+  Correct output:
+  {
+    "Key3": {
+      "Heading1": {"SubHeading1": "B3 value"},
+      "Heading2": {"SubHeading3": "D3 value", "SubHeading4": "E3 value"}
+    },
+    "Key4": {
+      "Heading1": "B4 value"
+    }
+  }
+  Key4 has no "Heading2" key at all (its merged D4:E4 cell was empty,
+  so the group is dropped entirely rather than emitted as empty/null).
+
+  Example B (WITHOUT a row-key column) - column A holds a row-group
+  label merged across rows 1-3 ("Heading 1"), column B holds a per-row
+  sub-heading, and row 1's columns C/D hold column-level sub-headings
+  shared by every row in the group. Raw input:
+
+  [
+    {"cell": "A1", "row": 1, "col": 1, "value": "Heading 1", "merge_range": "A1:A3"},
+    {"cell": "C1", "row": 1, "col": 3, "value": "sub heading 1"},
+    {"cell": "D1", "row": 1, "col": 4, "value": "sub heading 2"},
+    {"cell": "B1", "row": 1, "col": 2, "value": "sub heading 3"},
+    {"cell": "C2", "row": 1, "col": 3, "value": "value 1"},
+    {"cell": "D2", "row": 1, "col": 4, "value": "value 2"},
+    {"cell": "B2", "row": 2, "col": 2, "value": "sub heading 4"},
+    {"cell": "C3", "row": 2, "col": 3, "value": "value 3"},
+    {"cell": "D3", "row": 2, "col": 4, "value": "value4"},
+    {"cell": "B3", "row": 3, "col": 2, "value": "sub heading 5"},
+    {"cell": "C4", "row": 3, "col": 3, "value": "value 5"},
+    {"cell": "D4", "row": 3, "col": 4, "value": "value 6"}
+  ]
+
+  Correct output (no row-key wrapper - this IS the whole sheet's output):
+  {
+    "Heading 1": {
+      "sub heading 3": {"sub heading 1": "value 1", "sub heading 2": "value 2"},
+      "sub heading 4": {"sub heading 1": "value 3", "sub heading 2": "value4"},
+      "sub heading 5": {"sub heading 1": "value 5", "sub heading 2": "value 6"}
+    }
+  }
+
+RULE 8 - Unmerged second-tier column headers. A merge-anchored group
+header row (RULE 7) is sometimes followed by ONE plain, non-merged row
+that further splits each group's columns into sub-columns (e.g. "INLET"
+/ "OUTLET", "Min" / "Max", "Budget" / "Actual") even though none of
+that row's own cells carry a merge_range. Recognize this pattern when:
+(a) the row sits directly beneath a row containing merge-anchored group
+headers, (b) every non-empty cell in the row is a short label, and (c)
+the SAME small label set repeats once per group (e.g. INLET, OUTLET
+appear under every group). Treat such a row purely as a second header
+tier - extend each affected column's header path with this row's label
+- and NEVER emit the row itself as its own data record or block. Actual
+field data begins on the row(s) beneath it.
+
+  Example - row 1 has C1:D1 merge_range "Shell side", E1:F1 merge_range
+  "Tube side" (group headers per RULE 7). Row 2 is NOT merged: C2
+  "INLET", D2 "OUTLET", E2 "INLET", F2 "OUTLET" - matches the pattern,
+  so this row becomes a second header tier rather than a record:
+    column C's header path -> ["Shell side", "INLET"]
+    column D's header path -> ["Shell side", "OUTLET"]
+    column E's header path -> ["Tube side", "INLET"]
+    column F's header path -> ["Tube side", "OUTLET"]
+  Row 2's own cell values (the literal strings "INLET"/"OUTLET") never
+  appear anywhere in the output as keys or as a record - they only
+  become part of the column header paths used by RULE 9/10 below.
+
+RULE 9 - A row can locally collapse a header tier. If, for one
+particular data row, the columns that make up a sub-column pair (e.g.
+the two columns under "INLET"/"OUTLET" for one group) are merged back
+into a single cell for that row only, that row's value for the group
+applies at the GROUP level and skips the sub-column tier entirely for
+that row - consistent with the "sub-headings MERGED into one cell for
+this row" case in RULE 7. (E.g. a "Fluid name" row where C:D is one
+merged cell and E:F is another merged cell, sitting above rows that DO
+have the INLET/OUTLET split: the Fluid name row's output is simply
+{"Shell side": "...", "Tube side": "..."}, with no INLET/OUTLET key,
+while the rows below it do carry the INLET/OUTLET tier.)
+
+RULE 10 - Row-group label (column A, merged down several rows) crossed
+with a multi-tier column header (RULES 7-9) and a per-row field label
+(column B): nest as
+  columnPath-level-1 -> columnPath-level-2 -> ... -> RowGroupLabel -> FieldLabel -> value
+i.e. the column header hierarchy is the OUTER nesting, the row-group +
+field-label hierarchy is the INNER nesting, for every row-group block
+that sits beneath a multi-tier column header. Within one row-group
+block, every (column-path-leaf, field) combination that has NO cell
+value anywhere in that block must still appear with value null, so
+each row-group's object is fully rectangular across all column-path
+leaves - this satisfies RULE 4's full-coverage requirement without
+leaving gaps.
+
+  Worked example combining RULES 7-10, using columns C,D,E,F under two
+  merged group headers (row 1: C1:D1="Shell side", E1:F1="Tube side"),
+  an unmerged sub-header row (row 2: C2="INLET", D2="OUTLET",
+  E2="INLET", F2="OUTLET" - per RULE 8), two rows with no sub-column
+  split (rows 3-4, merged per RULE 9), and one row-group in column A
+  (A5:A9 merged "Readings") crossed against field labels in column B:
+
+  Raw input:
+  [
+    {"cell": "C1", "row": 1, "col": 3, "value": "Shell side", "merge_range": "C1:D1"},
+    {"cell": "E1", "row": 1, "col": 5, "value": "Tube side", "merge_range": "E1:F1"},
+    {"cell": "C2", "row": 2, "col": 3, "value": "INLET"},
+    {"cell": "D2", "row": 2, "col": 4, "value": "OUTLET"},
+    {"cell": "E2", "row": 2, "col": 5, "value": "INLET"},
+    {"cell": "F2", "row": 2, "col": 6, "value": "OUTLET"},
+    {"cell": "B3", "row": 3, "col": 2, "value": "Fluid name"},
+    {"cell": "C3", "row": 3, "col": 3, "value": "abc", "merge_range": "C3:D3"},
+    {"cell": "E3", "row": 3, "col": 5, "value": "def", "merge_range": "E3:F3"},
+    {"cell": "A5", "row": 5, "col": 1, "value": "Readings", "merge_range": "A5:A9"},
+    {"cell": "B5", "row": 5, "col": 2, "value": "Steam-kg/hr"},
+    {"cell": "E5", "row": 5, "col": 5, "value": 800},
+    {"cell": "B6", "row": 6, "col": 2, "value": "Pressure"},
+    {"cell": "C6", "row": 6, "col": 3, "value": 15},
+    {"cell": "D6", "row": 6, "col": 4, "value": 17}
+  ]
+
+  Correct output:
+  {
+    "Shell side": {
+      "Fluid name": "abc",
+      "INLET": {
+        "Readings": {"Steam-kg/hr": null, "Pressure": 15}
+      },
+      "OUTLET": {
+        "Readings": {"Steam-kg/hr": null, "Pressure": 17}
+      }
+    },
+    "Tube side": {
+      "Fluid name": "def",
+      "INLET": {
+        "Readings": {"Steam-kg/hr": 800, "Pressure": null}
+      },
+      "OUTLET": {
+        "Readings": {"Steam-kg/hr": null, "Pressure": null}
+      }
+    }
+  }
+  Note: "Fluid name" has no INLET/OUTLET tier (RULE 9, row 3 is
+  merged), while "Readings" fields do (RULE 8 applies to rows 5-6), and
+  every field is present under every INLET/OUTLET leaf even where the
+  value is null (RULE 10), instead of being omitted.
+
+Ignore purely structural/empty cells (no value, no formula, not a merge
+anchor). Output valid JSON only - no prose, no markdown code fences, no
+commentary before or after.
