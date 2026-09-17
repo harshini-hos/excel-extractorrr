@@ -1,0 +1,91 @@
+{
+  "ITEM": "Chlorine Vaporizer ",
+  "TEMA CLASS / TYPE": "Vertical Bayonet Type Heat Exchanger",
+  "Qty:": "3 Nos",
+  "HEAT EXCHANGED": "2,15,039 Kcal/hr",
+  "DESIGN HEAT DUTY": "2,40,920 Kcal/hr",
+  "ORIENTATION": "Vertical",
+  "ARRANGEMENT": "Parrallel",
+  "HEAT TRANSFER AREA": "15 M2 (Vendor to confirm)",
+  "Shell side": {
+    "FLUID NAME": "Chlorine",
+    "TOTAL FLOWRATE": "3625 Kg/hr",
+    "Process data": {
+      "Liquid- Process- Kg/hr": "INLET",
+      "VAPOUR- Process- Kg/hr": "OUTLET",
+      "OPERATING TEMPERATURE (Deg C)": {
+        "INLET": 31,
+        "OUTLET": 56
+      },
+      "OPERATING PRESSURE (kg/cm2 g)": {
+        "INLET": 14,
+        "OUTLET": 13.5
+      },
+      "DESIGN TEMPERATURE (Deg C)": "-35 / 140",
+      "DESIGN PRESSURE ( kg/cm2 g)": "26",
+      "ALLOWABLE PRESSURE DROP- ( kg/cm2)": "0.5",
+      "VACUUM RATING  (mm Hg)": "FV",
+      "FOULING RESISTANCE-  (m2-hr-C/kca)": "0.0002"
+    },
+    "Liquid": {
+      "DENSITY- Kg/M3": 1375,
+      "VISCOSITY- CP": 0.32,
+      "SPECIFIC HEAT-  kcal/kg-C": 0.23,
+      "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.11,
+      "ENTHALPY-  kcal/kg": -59.35,
+      "SURFACE TENSION -NM": 0.025
+    },
+    "Vapour": {
+      "MOLECULAR WEIGHT": 70.9,
+      "DENSITY- Kg/M3": 45.11,
+      "VISCOSITY- CP": 0.02,
+      "SPECIFIC HEAT-  kcal/kg-C": 0.13,
+      "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.0085,
+      "ENTHALPY-  kcal/kg": -0.0285
+    },
+    "CRITICAL PRESSURE / TEMPERATURE (Kg/cM2/ DegC)": "77.1/ 144",
+    "LATENT HEAT OF VAPORIZATION- kcal/kg ": 520,
+    "BOILING POINT /  DEW POINT / POUR POINT°C": "128.621/128.621/0"
+  },
+  "Tube side": {
+    "FLUID NAME": "Low Low Pressure Steam",
+    "TOTAL FLOWRATE": "430 kg/hr",
+    "Process data": {
+      "Steam- Kg/hr": {
+        "INLET": "INLET",
+        "OUTLET": "OUTLET"
+      },
+      "OPERATING TEMPERATURE (Deg C)": {
+        "INLET": 128.6,
+        "OUTLET": 128.6
+      },
+      "OPERATING PRESSURE (kg/cm2 g)": {
+        "INLET": 1.5,
+        "OUTLET": 1.4
+      },
+      "DESIGN TEMPERATURE (Deg C)": "-35 / 180",
+      "DESIGN PRESSURE ( kg/cm2 g)": "26",
+      "ALLOWABLE PRESSURE DROP- ( kg/cm2)": "0.5",
+      "VACUUM RATING  (mm Hg)": "FV",
+      "FOULING RESISTANCE-  (m2-hr-C/kca)": "0.0001"
+    },
+    "Liquid": {
+      "DENSITY- Kg/M3": 887,
+      "VISCOSITY- CP": 0.21,
+      "SPECIFIC HEAT-  kcal/kg-C": 1.12,
+      "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.59,
+      "ENTHALPY-  kcal/kg": -3701.69,
+      "SURFACE TENSION -NM": 0.023
+    },
+    "Vapour": {
+      "MOLECULAR WEIGHT": 18,
+      "DENSITY- Kg/M3": 1.36,
+      "VISCOSITY- CP": 0.014,
+      "SPECIFIC HEAT-  kcal/kg-C": 0.46,
+      "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.023,
+      "ENTHALPY-  kcal/kg": 3161.59
+    },
+    "CRITICAL PRESSURE / TEMPERATURE (Kg/cM2/ DegC)": "220.64/373.946",
+    "BOILING POINT /  DEW POINT / POUR POINT°C": "51.06/51.06/-101.5"
+  }
+}

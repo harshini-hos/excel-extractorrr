@@ -1,0 +1,8 @@
+{
+  "total_raw_cells": 126,
+  "represented_cells": 126,
+  "unaccounted_cells": [],
+  "warnings": [
+    "No group-header row found anywhere (need >=2 sibling multi-column, single-row merges on the same row) - treating the whole sheet as one no-group region."
+  ]
+}

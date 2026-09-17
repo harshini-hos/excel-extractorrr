@@ -31,6 +31,7 @@ Requires:
 """
 
 import argparse
+import datetime
 import json
 import os
 import re
@@ -40,7 +41,7 @@ import time
 import httpx
 import ollama
 
-OLLAMA_BASE_URL = "http://213.173.99.11:10250"
+OLLAMA_BASE_URL = "http://213.173.109.6:39836"
 OLLAMA_MODEL = "qwen-custom"
 
 # connect: fail fast (5s) if the server is genuinely unreachable.
@@ -179,10 +180,34 @@ def main():
     out_dir = os.path.dirname(args.out)
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as f:
+
+    # Stamp the timestamp directly into the saved filename, e.g.
+    # "Sheet1_structured.json" -> "Sheet1_structured_16092026_112345.json"
+    # (DDMMYYYY_HHMMSS - no colons, since ':' isn't a legal filename
+    # character on Windows).
+    now = datetime.datetime.now()
+    timestamp_for_name = now.strftime("%d%m%Y_%H%M%S")
+    base, ext = os.path.splitext(args.out)
+    stamped_out = f"{base}_{timestamp_for_name}{ext}"
+
+    with open(stamped_out, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
-    print(f"Wrote {args.out}")
+    print(f"Wrote {stamped_out}")
+
+    # Sidecar metadata file (kept separate from the model's own output so it
+    # never changes the shape of the JSON a downstream pipeline step reads).
+    generated_at = now.astimezone().isoformat(timespec="seconds")
+    meta = {
+        "generated_at": generated_at,
+        "instructions": args.instructions,
+        "model": args.model,
+        "inputs": {label: path for item in args.input for label, path in [item.split("=", 1)]},
+    }
+    meta_path = os.path.splitext(stamped_out)[0] + ".meta.json"
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(meta, f, indent=2, ensure_ascii=False)
+    print(f"Wrote {meta_path} (generated_at={generated_at})")
 
     if "score" in result:
         print(f"Validation score: {result['score']}/100")

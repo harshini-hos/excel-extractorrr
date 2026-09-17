@@ -29,6 +29,7 @@ Output:
 """
 
 import argparse
+import datetime
 import json
 import os
 import re
@@ -115,11 +116,16 @@ def consolidate(xlsx_path: str, outdir: str):
         ws_formulas = wb_formulas[sheetname]
 
         cells = extract_sheet(ws_values, ws_formulas)
+        now = datetime.datetime.now()
+        generated_at = now.astimezone().isoformat(timespec="seconds")
+        # DDMMYYYY_HHMMSS - no colons, since ':' isn't a legal filename
+        # character on Windows.
+        timestamp_for_name = now.strftime("%d%m%Y_%H%M%S")
 
-        out_path = os.path.join(outdir, f"{safe_filename(sheetname)}_raw.json")
+        out_path = os.path.join(outdir, f"{safe_filename(sheetname)}_raw_{timestamp_for_name}.json")
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(
-                {"sheet_name": sheetname, "cells": cells},
+                {"sheet_name": sheetname, "generated_at": generated_at, "cells": cells},
                 f, indent=2, ensure_ascii=False, default=str,
             )
         written.append(out_path)

@@ -1,0 +1,606 @@
+{
+  "sheet_name": "IEC Vaporizer ",
+  "generated_at": "2026-09-17T11:24:09+05:30",
+  "cells": [
+    {
+      "cell": "A1",
+      "row": 1,
+      "col": 1,
+      "value": "Client"
+    },
+    {
+      "cell": "B1",
+      "row": 1,
+      "col": 2,
+      "value": "Sarna Chemicals Pvt Ltd",
+      "merge_range": "B1:F1"
+    },
+    {
+      "cell": "A2",
+      "row": 2,
+      "col": 1,
+      "value": "Manufacture"
+    },
+    {
+      "cell": "B2",
+      "row": 2,
+      "col": 2,
+      "value": "M/s IEC Fabchem Limited",
+      "merge_range": "B2:F2"
+    },
+    {
+      "cell": "A3",
+      "row": 3,
+      "col": 1,
+      "value": "Equipment"
+    },
+    {
+      "cell": "B3",
+      "row": 3,
+      "col": 2,
+      "value": "Chlorine Vaporizer",
+      "merge_range": "B3:F3"
+    },
+    {
+      "cell": "A4",
+      "row": 4,
+      "col": 1,
+      "value": "S. No"
+    },
+    {
+      "cell": "B4",
+      "row": 4,
+      "col": 2,
+      "value": "General Specification"
+    },
+    {
+      "cell": "C4",
+      "row": 4,
+      "col": 3,
+      "value": "UOM"
+    },
+    {
+      "cell": "D4",
+      "row": 4,
+      "col": 4,
+      "value": "Client Input"
+    },
+    {
+      "cell": "E4",
+      "row": 4,
+      "col": 5,
+      "value": "Remarks",
+      "merge_range": "E4:F4"
+    },
+    {
+      "cell": "A5",
+      "row": 5,
+      "col": 1,
+      "value": 1
+    },
+    {
+      "cell": "B5",
+      "row": 5,
+      "col": 2,
+      "value": "Description"
+    },
+    {
+      "cell": "D5",
+      "row": 5,
+      "col": 4,
+      "value": "Chlorine Vaporizer"
+    },
+    {
+      "cell": "A6",
+      "row": 6,
+      "col": 1,
+      "value": 2,
+      "formula": "=A5+1"
+    },
+    {
+      "cell": "B6",
+      "row": 6,
+      "col": 2,
+      "value": "Qty"
+    },
+    {
+      "cell": "C6",
+      "row": 6,
+      "col": 3,
+      "value": "No's"
+    },
+    {
+      "cell": "D6",
+      "row": 6,
+      "col": 4,
+      "value": 1
+    },
+    {
+      "cell": "A7",
+      "row": 7,
+      "col": 1,
+      "value": 3,
+      "formula": "=A6+1"
+    },
+    {
+      "cell": "B7",
+      "row": 7,
+      "col": 2,
+      "value": "Location (Installation)"
+    },
+    {
+      "cell": "D7",
+      "row": 7,
+      "col": 4,
+      "value": "indoor"
+    },
+    {
+      "cell": "E7",
+      "row": 7,
+      "col": 5,
+      "value": "Indoor / Outdoor",
+      "merge_range": "E7:F7"
+    },
+    {
+      "cell": "B8",
+      "row": 8,
+      "col": 2,
+      "value": "System bolt down location - Site Location"
+    },
+    {
+      "cell": "B9",
+      "row": 9,
+      "col": 2,
+      "value": "Minimum and Maximum temperature during winter season?"
+    },
+    {
+      "cell": "C9",
+      "row": 9,
+      "col": 3,
+      "value": "°C"
+    },
+    {
+      "cell": "D9",
+      "row": 9,
+      "col": 4,
+      "value": "Min - 15 degree                        Max - 38 degree"
+    },
+    {
+      "cell": "A10",
+      "row": 10,
+      "col": 1,
+      "value": 4,
+      "formula": "=A7+1"
+    },
+    {
+      "cell": "B10",
+      "row": 10,
+      "col": 2,
+      "value": "Application"
+    },
+    {
+      "cell": "D10",
+      "row": 10,
+      "col": 4,
+      "value": "Product Chlorination"
+    },
+    {
+      "cell": "A11",
+      "row": 11,
+      "col": 1,
+      "value": 5
+    },
+    {
+      "cell": "B11",
+      "row": 11,
+      "col": 2,
+      "value": "Orientation"
+    },
+    {
+      "cell": "D11",
+      "row": 11,
+      "col": 4,
+      "value": "Bayonet (Vertical)"
+    },
+    {
+      "cell": "A12",
+      "row": 12,
+      "col": 1,
+      "value": 5
+    },
+    {
+      "cell": "B12",
+      "row": 12,
+      "col": 2,
+      "value": "Design Capacity"
+    },
+    {
+      "cell": "C12",
+      "row": 12,
+      "col": 3,
+      "value": "kg/hr"
+    },
+    {
+      "cell": "D12",
+      "row": 12,
+      "col": 4,
+      "value": 1000
+    },
+    {
+      "cell": "A13",
+      "row": 13,
+      "col": 1,
+      "value": 5
+    },
+    {
+      "cell": "B13",
+      "row": 13,
+      "col": 2,
+      "value": "Source of Chlorine"
+    },
+    {
+      "cell": "D13",
+      "row": 13,
+      "col": 4,
+      "value": "Tonner"
+    },
+    {
+      "cell": "A14",
+      "row": 14,
+      "col": 1,
+      "value": 6,
+      "formula": "=1+A13"
+    },
+    {
+      "cell": "B14",
+      "row": 14,
+      "col": 2,
+      "value": "Inlet Liquid Chlorine Temperature"
+    },
+    {
+      "cell": "C14",
+      "row": 14,
+      "col": 3,
+      "value": "°C"
+    },
+    {
+      "cell": "D14",
+      "row": 14,
+      "col": 4,
+      "value": "ambient "
+    },
+    {
+      "cell": "A15",
+      "row": 15,
+      "col": 1,
+      "value": 7,
+      "formula": "=1+A14"
+    },
+    {
+      "cell": "B15",
+      "row": 15,
+      "col": 2,
+      "value": "Inlet Liquid Chlorine Pressure"
+    },
+    {
+      "cell": "C15",
+      "row": 15,
+      "col": 3,
+      "value": "bar (g)"
+    },
+    {
+      "cell": "D15",
+      "row": 15,
+      "col": 4,
+      "value": "tonnner pressuure"
+    },
+    {
+      "cell": "A16",
+      "row": 16,
+      "col": 1,
+      "value": 8,
+      "formula": "=1+A15"
+    },
+    {
+      "cell": "B16",
+      "row": 16,
+      "col": 2,
+      "value": "Chlorine Pressure required @ vaporizer gas outlet"
+    },
+    {
+      "cell": "C16",
+      "row": 16,
+      "col": 3,
+      "value": "bar (g)"
+    },
+    {
+      "cell": "D16",
+      "row": 16,
+      "col": 4,
+      "value": "3Kg/cm2"
+    },
+    {
+      "cell": "A17",
+      "row": 17,
+      "col": 1,
+      "value": 9,
+      "formula": "=1+A16"
+    },
+    {
+      "cell": "B17",
+      "row": 17,
+      "col": 2,
+      "value": "Chlorine Temperature required @ vaporizer gas outlet"
+    },
+    {
+      "cell": "C17",
+      "row": 17,
+      "col": 3,
+      "value": "°C"
+    },
+    {
+      "cell": "D17",
+      "row": 17,
+      "col": 4,
+      "value": "Ammbient"
+    },
+    {
+      "cell": "A18",
+      "row": 18,
+      "col": 1,
+      "value": 10,
+      "formula": "=1+A17"
+    },
+    {
+      "cell": "B18",
+      "row": 18,
+      "col": 2,
+      "value": "Heating media"
+    },
+    {
+      "cell": "D18",
+      "row": 18,
+      "col": 4,
+      "value": "Steam"
+    },
+    {
+      "cell": "A19",
+      "row": 19,
+      "col": 1,
+      "value": 11,
+      "formula": "=1+A18"
+    },
+    {
+      "cell": "B19",
+      "row": 19,
+      "col": 2,
+      "value": "Heating Fluid"
+    },
+    {
+      "cell": "A20",
+      "row": 20,
+      "col": 1,
+      "value": 12,
+      "formula": "=1+A19"
+    },
+    {
+      "cell": "B20",
+      "row": 20,
+      "col": 2,
+      "value": "No. of tonners connected to the vaporizer system",
+      "merge_range": "B20:C20"
+    },
+    {
+      "cell": "D20",
+      "row": 20,
+      "col": 4,
+      "value": 20
+    },
+    {
+      "cell": "A21",
+      "row": 21,
+      "col": 1,
+      "value": 13,
+      "formula": "=1+A20"
+    },
+    {
+      "cell": "B21",
+      "row": 21,
+      "col": 2,
+      "value": "Tonner Manifold arrangement required / Not required\nIf required provide No. of tonners working & standby",
+      "merge_range": "B21:C21"
+    },
+    {
+      "cell": "D21",
+      "row": 21,
+      "col": 4,
+      "value": "Not required"
+    },
+    {
+      "cell": "A22",
+      "row": 22,
+      "col": 1,
+      "value": 14,
+      "formula": "=1+A21"
+    },
+    {
+      "cell": "B22",
+      "row": 22,
+      "col": 2,
+      "value": "Instrument Specification (FLP or Non-FLP)",
+      "merge_range": "B22:C22"
+    },
+    {
+      "cell": "D22",
+      "row": 22,
+      "col": 4,
+      "value": "FLP"
+    },
+    {
+      "cell": "A23",
+      "row": 23,
+      "col": 1,
+      "value": 15,
+      "formula": "=1+A22"
+    },
+    {
+      "cell": "B23",
+      "row": 23,
+      "col": 2,
+      "value": "Electrical Panel Specification (FLP or Non-FLP)",
+      "merge_range": "B23:C23"
+    },
+    {
+      "cell": "D23",
+      "row": 23,
+      "col": 4,
+      "value": "FLP"
+    },
+    {
+      "cell": "A24",
+      "row": 24,
+      "col": 1,
+      "value": 16,
+      "formula": "=1+A23"
+    },
+    {
+      "cell": "B24",
+      "row": 24,
+      "col": 2,
+      "value": "Area classification - Hazardous or Non-Hazardous?",
+      "merge_range": "B24:C24"
+    },
+    {
+      "cell": "D24",
+      "row": 24,
+      "col": 4,
+      "value": "Hazardouus"
+    },
+    {
+      "cell": "A25",
+      "row": 25,
+      "col": 1,
+      "value": 17,
+      "formula": "=1+A24"
+    },
+    {
+      "cell": "B25",
+      "row": 25,
+      "col": 2,
+      "value": "Bare vaporizer / Complete skid system with all instruments & Controls",
+      "merge_range": "B25:C25"
+    },
+    {
+      "cell": "D25",
+      "row": 25,
+      "col": 4,
+      "value": "Complete Skid with all instrumments & controls"
+    },
+    {
+      "cell": "A26",
+      "row": 26,
+      "col": 1,
+      "value": 18,
+      "formula": "=1+A25"
+    },
+    {
+      "cell": "B26",
+      "row": 26,
+      "col": 2,
+      "value": "Provide Site layout / Flow Scheme",
+      "merge_range": "B26:C26"
+    },
+    {
+      "cell": "A27",
+      "row": 27,
+      "col": 1,
+      "value": 19,
+      "formula": "=1+A26"
+    },
+    {
+      "cell": "B27",
+      "row": 27,
+      "col": 2,
+      "value": "Tentative Month / Year of Finalization",
+      "merge_range": "B27:C27"
+    },
+    {
+      "cell": "D27",
+      "row": 27,
+      "col": 4,
+      "value": "within week"
+    },
+    {
+      "cell": "A28",
+      "row": 28,
+      "col": 1,
+      "value": "INITIAL ISSUE"
+    },
+    {
+      "cell": "B28",
+      "row": 28,
+      "col": 2,
+      "value": "RK"
+    },
+    {
+      "cell": "C28",
+      "row": 28,
+      "col": 3,
+      "value": "MRK"
+    },
+    {
+      "cell": "D28",
+      "row": 28,
+      "col": 4,
+      "value": "RSP"
+    },
+    {
+      "cell": "E28",
+      "row": 28,
+      "col": 5,
+      "value": "20.08.2026"
+    },
+    {
+      "cell": "F28",
+      "row": 28,
+      "col": 6,
+      "value": 0
+    },
+    {
+      "cell": "A29",
+      "row": 29,
+      "col": 1,
+      "value": "DESCRIPTION"
+    },
+    {
+      "cell": "B29",
+      "row": 29,
+      "col": 2,
+      "value": "BY"
+    },
+    {
+      "cell": "C29",
+      "row": 29,
+      "col": 3,
+      "value": "CHK"
+    },
+    {
+      "cell": "D29",
+      "row": 29,
+      "col": 4,
+      "value": "APP"
+    },
+    {
+      "cell": "E29",
+      "row": 29,
+      "col": 5,
+      "value": "DATE"
+    },
+    {
+      "cell": "F29",
+      "row": 29,
+      "col": 6,
+      "value": "REV"
+    }
+  ]
+}

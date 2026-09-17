@@ -1,0 +1,47 @@
+{
+  "Client": "Sarna Chemicals Pvt Ltd",
+  "Manufacture": "M/s IEC Fabchem Limited",
+  "Equipment": "Chlorine Vaporizer",
+  "S. No": {
+    "General Specification": "General Specification",
+    "UOM": "UOM",
+    "Client Input": "Client Input",
+    "Remarks": "Remarks"
+  },
+  "Description": "Chlorine Vaporizer",
+  "Qty": "No's",
+  "No's": 1,
+  "Location (Installation)": "indoor",
+  "Indoor / Outdoor": "Indoor / Outdoor",
+  "°C": "Ammbient",
+  "Application": "Product Chlorination",
+  "Orientation": "Bayonet (Vertical)",
+  "Design Capacity": "kg/hr",
+  "kg/hr": 1000,
+  "Source of Chlorine": "Tonner",
+  "Inlet Liquid Chlorine Temperature": "°C",
+  "Inlet Liquid Chlorine Pressure": "bar (g)",
+  "bar (g)": "3Kg/cm2",
+  "Chlorine Pressure required @ vaporizer gas outlet": "bar (g)",
+  "Chlorine Temperature required @ vaporizer gas outlet": "°C",
+  "Heating media": "Steam",
+  "Heating Fluid": "Heating Fluid",
+  "No. of tonners connected to the vaporizer system,": 20,
+  "Tonner Manifold arrangement required / Not required\nIf required provide No. of tonners working & standby": "Not required",
+  "Instrument Specification (FLP or Non-FLP)": "FLP",
+  "Electrical Panel Specification (FLP or Non-FLP)": "FLP",
+  "Area classification - Hazardous or Non-Hazardous?": "Hazardouus",
+  "Bare vaporizer / Complete skid system with all instruments & Controls": "Complete Skid with all instrumments & controls",
+  "Provide Site layout / Flow Scheme": "Provide Site layout / Flow Scheme",
+  "Tentative Month / Year of Finalization": "within week",
+  "RK": {
+    "MRK": "RSP",
+    "RSP": "20.08.2026",
+    "20.08.2026": 0
+  },
+  "BY": {
+    "CHK": "APP",
+    "APP": "DATE",
+    "DATE": "REV"
+  }
+}

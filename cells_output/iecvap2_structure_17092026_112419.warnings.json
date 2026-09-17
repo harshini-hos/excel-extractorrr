@@ -1,0 +1,12 @@
+{
+  "total_raw_cells": 95,
+  "represented_cells": 94,
+  "unaccounted_cells": [
+    "B8"
+  ],
+  "warnings": [
+    "No group-header row found anywhere (need >=2 sibling multi-column, single-row merges on the same row) - treating the whole sheet as one no-group region.",
+    "B8 (row 8, col 2): no other populated, non-structural cell found on this row to pair it with - omitted from CELL_STRUCTURE.",
+    "B8 (row 8, col 2): populated cell was not confidently classified - omitted from CELL_STRUCTURE."
+  ]
+}

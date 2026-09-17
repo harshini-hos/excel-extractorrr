@@ -1,0 +1,106 @@
+{
+  "SHELL SIDE": {
+    "FLUID NAME": "Chlorine",
+    "TOTAL FLOWRATE": "3625 Kg/hr",
+    "Process data": {
+      "Liquid- Process- Kg/hr": {
+        "INLET": "INLET",
+        "OUTLET": 3625
+      },
+      "VAPOUR- Process- Kg/hr": {
+        "OUTLET": 3625
+      },
+      "OPERATING TEMPERATURE (Deg C)": {
+        "INLET": 31,
+        "OUTLET": 56
+      },
+      "OPERATING PRESSURE (kg/cm2 g)": {
+        "INLET": 14,
+        "OUTLET": 13.5
+      },
+      "DESIGN TEMPERATURE (Deg C)": {
+        "INLET": "-35 / 140"
+      },
+      "DESIGN PRESSURE ( kg/cm2 g)": {
+        "INLET": 26
+      },
+      "ALLOWABLE PRESSURE DROP- ( kg/cm2)": {
+        "INLET": 0.5
+      },
+      "VACUUM RATING  (mm Hg)": {
+        "INLET": "FV"
+      },
+      "FOULING RESISTANCE-  (m2-hr-C/kca)": {
+        "INLET": 0.0002
+      },
+      "Liquid": {
+        "DENSITY- Kg/M3": 1375,
+        "VISCOSITY- CP": 0.32,
+        "SPECIFIC HEAT-  kcal/kg-C": 0.23,
+        "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.11,
+        "ENTHALPY-  kcal/kg": -59.35,
+        "SURFACE TENSION -NM": 0.025
+      },
+      "Vapour": {
+        "MOLECULAR WEIGHT": 70.9,
+        "DENSITY- Kg/M3": 45.11,
+        "VISCOSITY- CP": 0.02,
+        "SPECIFIC HEAT-  kcal/kg-C": 0.13,
+        "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.0085,
+        "ENTHALPY-  kcal/kg": -0.0285
+      }
+    }
+  },
+  "TUBE SIDE": {
+    "FLUID NAME": "Low Low Pressure Steam",
+    "TOTAL FLOWRATE": "430 kg/hr",
+    "Process data": {
+      "Steam- Kg/hr": {
+        "INLET": 430,
+        "OUTLET": 430
+      },
+      "STEAM CONDENSATE- Kg/hr": {
+        "OUTLET": 430
+      },
+      "OPERATING TEMPERATURE (Deg C)": {
+        "INLET": 128.6,
+        "OUTLET": 128.6
+      },
+      "OPERATING PRESSURE (kg/cm2 g)": {
+        "INLET": 1.5,
+        "OUTLET": 1.4
+      },
+      "DESIGN TEMPERATURE (Deg C)": {
+        "INLET": "-35 / 180"
+      },
+      "DESIGN PRESSURE ( kg/cm2 g)": {
+        "INLET": 26
+      },
+      "ALLOWABLE PRESSURE DROP- ( kg/cm2)": {
+        "INLET": 0.5
+      },
+      "VACUUM RATING  (mm Hg)": {
+        "INLET": "FV"
+      },
+      "FOULING RESISTANCE-  (m2-hr-C/kca)": {
+        "INLET": 0.0001
+      },
+      "Liquid": {
+        "DENSITY- Kg/M3": 887,
+        "VISCOSITY- CP": 0.21,
+        "SPECIFIC HEAT-  kcal/kg-C": 1.12,
+        "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.59,
+        "ENTHALPY-  kcal/kg": -3701.69,
+        "SURFACE TENSION -NM": 0.023
+      },
+      "Vapour": {
+        "MOLECULAR WEIGHT": 18,
+        "DENSITY- Kg/M3": 1.36,
+        "VISCOSITY- CP": 0.014,
+        "SPECIFIC HEAT-  kcal/kg-C": 0.46,
+        "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.023,
+        "ENTHALPY-  kcal/kg": 3161.59
+      }
+    }
+  }
+}

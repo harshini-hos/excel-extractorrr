@@ -1,0 +1,681 @@
+{
+  "sheet_name": "Sheet1",
+  "generated_at": "2026-09-17T10:58:01+05:30",
+  "cells": [
+    {
+      "cell": "A1",
+      "row": 1,
+      "col": 1,
+      "value": "ITEM"
+    },
+    {
+      "cell": "B1",
+      "row": 1,
+      "col": 2,
+      "value": "Chlorine Vaporizer "
+    },
+    {
+      "cell": "A2",
+      "row": 2,
+      "col": 1,
+      "value": "TEMA CLASS / TYPE"
+    },
+    {
+      "cell": "B2",
+      "row": 2,
+      "col": 2,
+      "value": "Vertical Bayonet Type Heat Exchanger"
+    },
+    {
+      "cell": "A3",
+      "row": 3,
+      "col": 1,
+      "value": "Qty:"
+    },
+    {
+      "cell": "B3",
+      "row": 3,
+      "col": 2,
+      "value": "3 Nos"
+    },
+    {
+      "cell": "A4",
+      "row": 4,
+      "col": 1,
+      "value": "HEAT EXCHANGED"
+    },
+    {
+      "cell": "B4",
+      "row": 4,
+      "col": 2,
+      "value": "2,15,039 Kcal/hr"
+    },
+    {
+      "cell": "A5",
+      "row": 5,
+      "col": 1,
+      "value": "DESIGN HEAT DUTY"
+    },
+    {
+      "cell": "B5",
+      "row": 5,
+      "col": 2,
+      "value": "2,40,920 Kcal/hr"
+    },
+    {
+      "cell": "A6",
+      "row": 6,
+      "col": 1,
+      "value": "ORIENTATION"
+    },
+    {
+      "cell": "B6",
+      "row": 6,
+      "col": 2,
+      "value": "Vertical"
+    },
+    {
+      "cell": "A7",
+      "row": 7,
+      "col": 1,
+      "value": "ARRANGEMENT"
+    },
+    {
+      "cell": "B7",
+      "row": 7,
+      "col": 2,
+      "value": "Parrallel"
+    },
+    {
+      "cell": "A8",
+      "row": 8,
+      "col": 1,
+      "value": "HEAT TRANSFER AREA"
+    },
+    {
+      "cell": "B8",
+      "row": 8,
+      "col": 2,
+      "value": "15 M2 (Vendor to confirm)"
+    },
+    {
+      "cell": "C9",
+      "row": 9,
+      "col": 3,
+      "value": "SHELL SIDE",
+      "merge_range": "C9:D9"
+    },
+    {
+      "cell": "E9",
+      "row": 9,
+      "col": 5,
+      "value": "TUBE SIDE",
+      "merge_range": "E9:F9"
+    },
+    {
+      "cell": "B10",
+      "row": 10,
+      "col": 2,
+      "value": "FLUID NAME"
+    },
+    {
+      "cell": "C10",
+      "row": 10,
+      "col": 3,
+      "value": "Chlorine",
+      "merge_range": "C10:D10"
+    },
+    {
+      "cell": "E10",
+      "row": 10,
+      "col": 5,
+      "value": "Low Low Pressure Steam",
+      "merge_range": "E10:F10"
+    },
+    {
+      "cell": "B11",
+      "row": 11,
+      "col": 2,
+      "value": "TOTAL FLOWRATE"
+    },
+    {
+      "cell": "C11",
+      "row": 11,
+      "col": 3,
+      "value": "3625 Kg/hr",
+      "merge_range": "C11:D11"
+    },
+    {
+      "cell": "E11",
+      "row": 11,
+      "col": 5,
+      "value": "430 kg/hr",
+      "merge_range": "E11:F11"
+    },
+    {
+      "cell": "C12",
+      "row": 12,
+      "col": 3,
+      "value": "INLET"
+    },
+    {
+      "cell": "D12",
+      "row": 12,
+      "col": 4,
+      "value": "OUTLET"
+    },
+    {
+      "cell": "E12",
+      "row": 12,
+      "col": 5,
+      "value": "INLET"
+    },
+    {
+      "cell": "F12",
+      "row": 12,
+      "col": 6,
+      "value": "OUTLET"
+    },
+    {
+      "cell": "A13",
+      "row": 13,
+      "col": 1,
+      "value": "Process data",
+      "merge_range": "A13:A23"
+    },
+    {
+      "cell": "B13",
+      "row": 13,
+      "col": 2,
+      "value": "Steam- Kg/hr"
+    },
+    {
+      "cell": "E13",
+      "row": 13,
+      "col": 5,
+      "value": 430
+    },
+    {
+      "cell": "B14",
+      "row": 14,
+      "col": 2,
+      "value": "STEAM CONDENSATE- Kg/hr"
+    },
+    {
+      "cell": "F14",
+      "row": 14,
+      "col": 6,
+      "value": 430
+    },
+    {
+      "cell": "B15",
+      "row": 15,
+      "col": 2,
+      "value": "Liquid- Process- Kg/hr"
+    },
+    {
+      "cell": "C15",
+      "row": 15,
+      "col": 3,
+      "value": 3625
+    },
+    {
+      "cell": "B16",
+      "row": 16,
+      "col": 2,
+      "value": "VAPOUR- Process- Kg/hr"
+    },
+    {
+      "cell": "D16",
+      "row": 16,
+      "col": 4,
+      "value": 3625
+    },
+    {
+      "cell": "B17",
+      "row": 17,
+      "col": 2,
+      "value": "OPERATING TEMPERATURE (Deg C)"
+    },
+    {
+      "cell": "C17",
+      "row": 17,
+      "col": 3,
+      "value": 31
+    },
+    {
+      "cell": "D17",
+      "row": 17,
+      "col": 4,
+      "value": 56
+    },
+    {
+      "cell": "E17",
+      "row": 17,
+      "col": 5,
+      "value": 128.6
+    },
+    {
+      "cell": "F17",
+      "row": 17,
+      "col": 6,
+      "value": 128.6
+    },
+    {
+      "cell": "B18",
+      "row": 18,
+      "col": 2,
+      "value": "OPERATING PRESSURE (kg/cm2 g)"
+    },
+    {
+      "cell": "C18",
+      "row": 18,
+      "col": 3,
+      "value": 14
+    },
+    {
+      "cell": "D18",
+      "row": 18,
+      "col": 4,
+      "value": 13.5
+    },
+    {
+      "cell": "E18",
+      "row": 18,
+      "col": 5,
+      "value": 1.5
+    },
+    {
+      "cell": "F18",
+      "row": 18,
+      "col": 6,
+      "value": 1.4
+    },
+    {
+      "cell": "B19",
+      "row": 19,
+      "col": 2,
+      "value": "DESIGN TEMPERATURE (Deg C)"
+    },
+    {
+      "cell": "C19",
+      "row": 19,
+      "col": 3,
+      "value": "-35 / 140",
+      "merge_range": "C19:D19"
+    },
+    {
+      "cell": "E19",
+      "row": 19,
+      "col": 5,
+      "value": "-35 / 180",
+      "merge_range": "E19:F19"
+    },
+    {
+      "cell": "B20",
+      "row": 20,
+      "col": 2,
+      "value": "DESIGN PRESSURE ( kg/cm2 g)"
+    },
+    {
+      "cell": "C20",
+      "row": 20,
+      "col": 3,
+      "value": "26",
+      "merge_range": "C20:D20"
+    },
+    {
+      "cell": "E20",
+      "row": 20,
+      "col": 5,
+      "value": "26",
+      "merge_range": "E20:F20"
+    },
+    {
+      "cell": "B21",
+      "row": 21,
+      "col": 2,
+      "value": "ALLOWABLE PRESSURE DROP- ( kg/cm2)"
+    },
+    {
+      "cell": "C21",
+      "row": 21,
+      "col": 3,
+      "value": "0.5",
+      "merge_range": "C21:D21"
+    },
+    {
+      "cell": "E21",
+      "row": 21,
+      "col": 5,
+      "value": "0.5",
+      "merge_range": "E21:F21"
+    },
+    {
+      "cell": "B22",
+      "row": 22,
+      "col": 2,
+      "value": "VACUUM RATING  (mm Hg)"
+    },
+    {
+      "cell": "C22",
+      "row": 22,
+      "col": 3,
+      "value": "FV",
+      "merge_range": "C22:D22"
+    },
+    {
+      "cell": "E22",
+      "row": 22,
+      "col": 5,
+      "value": "FV",
+      "merge_range": "E22:F22"
+    },
+    {
+      "cell": "B23",
+      "row": 23,
+      "col": 2,
+      "value": "FOULING RESISTANCE-  (m2-hr-C/kca)"
+    },
+    {
+      "cell": "C23",
+      "row": 23,
+      "col": 3,
+      "value": "0.0002",
+      "merge_range": "C23:D23"
+    },
+    {
+      "cell": "E23",
+      "row": 23,
+      "col": 5,
+      "value": "0.0001",
+      "merge_range": "E23:F23"
+    },
+    {
+      "cell": "A24",
+      "row": 24,
+      "col": 1,
+      "value": "Liquid",
+      "merge_range": "A24:A29"
+    },
+    {
+      "cell": "B24",
+      "row": 24,
+      "col": 2,
+      "value": "DENSITY- Kg/M3"
+    },
+    {
+      "cell": "C24",
+      "row": 24,
+      "col": 3,
+      "value": 1375
+    },
+    {
+      "cell": "F24",
+      "row": 24,
+      "col": 6,
+      "value": 887
+    },
+    {
+      "cell": "B25",
+      "row": 25,
+      "col": 2,
+      "value": "VISCOSITY- CP"
+    },
+    {
+      "cell": "C25",
+      "row": 25,
+      "col": 3,
+      "value": 0.32
+    },
+    {
+      "cell": "F25",
+      "row": 25,
+      "col": 6,
+      "value": 0.21
+    },
+    {
+      "cell": "B26",
+      "row": 26,
+      "col": 2,
+      "value": "SPECIFIC HEAT-  kcal/kg-C"
+    },
+    {
+      "cell": "C26",
+      "row": 26,
+      "col": 3,
+      "value": 0.23
+    },
+    {
+      "cell": "F26",
+      "row": 26,
+      "col": 6,
+      "value": 1.12
+    },
+    {
+      "cell": "B27",
+      "row": 27,
+      "col": 2,
+      "value": "THERMAL CONDUCTIVITY kcal/hr-m-C"
+    },
+    {
+      "cell": "C27",
+      "row": 27,
+      "col": 3,
+      "value": 0.11
+    },
+    {
+      "cell": "F27",
+      "row": 27,
+      "col": 6,
+      "value": 0.59
+    },
+    {
+      "cell": "B28",
+      "row": 28,
+      "col": 2,
+      "value": "ENTHALPY-  kcal/kg"
+    },
+    {
+      "cell": "C28",
+      "row": 28,
+      "col": 3,
+      "value": -59.35
+    },
+    {
+      "cell": "F28",
+      "row": 28,
+      "col": 6,
+      "value": -3701.69
+    },
+    {
+      "cell": "B29",
+      "row": 29,
+      "col": 2,
+      "value": "SURFACE TENSION -NM"
+    },
+    {
+      "cell": "C29",
+      "row": 29,
+      "col": 3,
+      "value": 0.025
+    },
+    {
+      "cell": "F29",
+      "row": 29,
+      "col": 6,
+      "value": 0.023
+    },
+    {
+      "cell": "A30",
+      "row": 30,
+      "col": 1,
+      "value": "Vapour",
+      "merge_range": "A30:A35"
+    },
+    {
+      "cell": "B30",
+      "row": 30,
+      "col": 2,
+      "value": "MOLECULAR WEIGHT"
+    },
+    {
+      "cell": "D30",
+      "row": 30,
+      "col": 4,
+      "value": 70.9
+    },
+    {
+      "cell": "E30",
+      "row": 30,
+      "col": 5,
+      "value": 18
+    },
+    {
+      "cell": "B31",
+      "row": 31,
+      "col": 2,
+      "value": "DENSITY- Kg/M3"
+    },
+    {
+      "cell": "D31",
+      "row": 31,
+      "col": 4,
+      "value": 45.11
+    },
+    {
+      "cell": "E31",
+      "row": 31,
+      "col": 5,
+      "value": 1.36
+    },
+    {
+      "cell": "B32",
+      "row": 32,
+      "col": 2,
+      "value": "VISCOSITY- CP"
+    },
+    {
+      "cell": "D32",
+      "row": 32,
+      "col": 4,
+      "value": 0.02
+    },
+    {
+      "cell": "E32",
+      "row": 32,
+      "col": 5,
+      "value": 0.014
+    },
+    {
+      "cell": "B33",
+      "row": 33,
+      "col": 2,
+      "value": "SPECIFIC HEAT-  kcal/kg-C"
+    },
+    {
+      "cell": "D33",
+      "row": 33,
+      "col": 4,
+      "value": 0.13
+    },
+    {
+      "cell": "E33",
+      "row": 33,
+      "col": 5,
+      "value": 0.46
+    },
+    {
+      "cell": "B34",
+      "row": 34,
+      "col": 2,
+      "value": "THERMAL CONDUCTIVITY kcal/hr-m-C"
+    },
+    {
+      "cell": "D34",
+      "row": 34,
+      "col": 4,
+      "value": 0.0085
+    },
+    {
+      "cell": "E34",
+      "row": 34,
+      "col": 5,
+      "value": 0.023
+    },
+    {
+      "cell": "B35",
+      "row": 35,
+      "col": 2,
+      "value": "ENTHALPY-  kcal/kg"
+    },
+    {
+      "cell": "D35",
+      "row": 35,
+      "col": 4,
+      "value": -0.0285
+    },
+    {
+      "cell": "E35",
+      "row": 35,
+      "col": 5,
+      "value": 3161.59
+    },
+    {
+      "cell": "A36",
+      "row": 36,
+      "col": 1,
+      "value": "CRITICAL PRESSURE / TEMPERATURE (Kg/cM2/ DegC)",
+      "merge_range": "A36:B36"
+    },
+    {
+      "cell": "C36",
+      "row": 36,
+      "col": 3,
+      "value": "77.1/ 144",
+      "merge_range": "C36:D36"
+    },
+    {
+      "cell": "E36",
+      "row": 36,
+      "col": 5,
+      "value": "220.64/373.946",
+      "merge_range": "E36:F36"
+    },
+    {
+      "cell": "A37",
+      "row": 37,
+      "col": 1,
+      "value": "LATENT HEAT OF VAPORIZATION- kcal/kg ",
+      "merge_range": "A37:B37"
+    },
+    {
+      "cell": "C37",
+      "row": 37,
+      "col": 3,
+      "value": 520,
+      "merge_range": "C37:D37"
+    },
+    {
+      "cell": "A38",
+      "row": 38,
+      "col": 1,
+      "value": "BOILING POINT /  DEW POINT / POUR POINT°C",
+      "merge_range": "A38:B38"
+    },
+    {
+      "cell": "C38",
+      "row": 38,
+      "col": 3,
+      "value": "128.621/128.621/0",
+      "merge_range": "C38:D38"
+    },
+    {
+      "cell": "E38",
+      "row": 38,
+      "col": 5,
+      "value": "51.06/51.06/-101.5",
+      "merge_range": "E38:F38"
+    }
+  ]
+}

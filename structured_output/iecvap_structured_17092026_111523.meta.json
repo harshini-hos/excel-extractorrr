@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-09-17T11:15:23+05:30",
+  "instructions": "structure_relationship_prompt.txt",
+  "model": "qwen-custom",
+  "inputs": {
+    "RAW_DATA": "raw_output/IEC_Vaporizer_raw_17092026_111236.json",
+    "CELL_STRUCTURE": "cells_output/iecvap_structure_17092026_111245.json"
+  }
+}

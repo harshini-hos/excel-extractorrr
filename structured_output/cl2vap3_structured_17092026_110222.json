@@ -1,0 +1,75 @@
+{
+  "ITEM": {
+    "Chlorine Vaporizer ": "Vertical Bayonet Type Heat Exchanger"
+  },
+  "TEMA CLASS / TYPE": {
+    "Vertical Bayonet Type Heat Exchanger": {
+      "Qty:": "3 Nos"
+    }
+  },
+  "HEAT EXCHANGED": {
+    "DESIGN HEAT DUTY": "2,40,920 Kcal/hr"
+  },
+  "ORIENTATION": {
+    "Vertical": "Parrallel"
+  },
+  "ARRANGEMENT": {
+    "Parrallel": {
+      "HEAT TRANSFER AREA": "15 M2 (Vendor to confirm)"
+    }
+  },
+  "SHELL SIDE": {
+    "FLUID NAME": {
+      "Chlorine": "Low Low Pressure Steam"
+    },
+    "TOTAL FLOWRATE": {
+      "3625 Kg/hr": "430 kg/hr"
+    }
+  },
+  "Process data": {
+    "Steam- Kg/hr": 430,
+    "STEAM CONDENSATE- Kg/hr": 430,
+    "Liquid- Process- Kg/hr": 3625,
+    "VAPOUR- Process- Kg/hr": 3625,
+    "OPERATING TEMPERATURE (Deg C)": {
+      "INLET": 128.6,
+      "OUTLET": 128.6
+    },
+    "OPERATING PRESSURE (kg/cm2 g)": {
+      "INLET": 1.5,
+      "OUTLET": 1.4
+    },
+    "DESIGN TEMPERATURE (Deg C)": "-35 / 180",
+    "DESIGN PRESSURE ( kg/cm2 g)": "26",
+    "ALLOWABLE PRESSURE DROP- ( kg/cm2)": "0.5",
+    "VACUUM RATING  (mm Hg)": "FV",
+    "FOULING RESISTANCE-  (m2-hr-C/kca)": "0.0001"
+  },
+  "Liquid": {
+    "DENSITY- Kg/M3": 887,
+    "VISCOSITY- CP": 0.21,
+    "SPECIFIC HEAT-  kcal/kg-C": 1.12,
+    "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.59,
+    "ENTHALPY-  kcal/kg": -3701.69,
+    "SURFACE TENSION -NM": 0.023
+  },
+  "Vapour": {
+    "MOLECULAR WEIGHT": 18,
+    "DENSITY- Kg/M3": 45.11,
+    "VISCOSITY- CP": 0.014,
+    "SPECIFIC HEAT-  kcal/kg-C": 0.46,
+    "THERMAL CONDUCTIVITY kcal/hr-m-C": 0.023,
+    "ENTHALPY-  kcal/kg": 3161.59
+  },
+  "CRITICAL PRESSURE / TEMPERATURE (Kg/cM2/ DegC)": "220.64/373.946",
+  "LATENT HEAT OF VAPORIZATION- kcal/kg ": 520,
+  "BOILING POINT /  DEW POINT / POUR POINT°C": "51.06/51.06/-101.5",
+  "TUBE SIDE": {
+    "FLUID NAME": {
+      "Low Low Pressure Steam": "Chlorine"
+    },
+    "TOTAL FLOWRATE": {
+      "430 kg/hr": "3625 Kg/hr"
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "Client": "Sarna Chemicals Pvt Ltd",
+  "Manufacture": "M/s IEC Fabchem Limited",
+  "Equipment": "Chlorine Vaporizer",
+  "S. No": [
+    "General Specification",
+    "UOM",
+    "Client Input",
+    "Remarks",
+    "Mandotary fields",
+    "Weightage"
+  ],
+  "1": {
+    "Description": "Chlorine Vaporizer",
+    "Name of the equipment": "Chlorine Vaporizer",
+    "Weightage": 1
+  },
+  "2": {
+    "Qty": [
+      "No's",
+      1
+    ]
+  },
+  "3": {
+    "Location (Installation)": {
+      "indoor": "Indoor / Outdoor",
+      "Yes": "Yes"
+    }
+  },
+  "System bolt down location - Site Location": [
+    "Area",
+    "Yes"
+  ],
+  "Minimum and Maximum temperature during winter season?": {
+    "°C": "Min - 15 degree                        Max - 38 degree"
+  },
+  "4": {
+    "Application": {
+      "Product Chlorination": "Name of the chemical vaporizer",
+      "Name of the chemical vaporizer": "Chlorine Vaporizer",
+      "Weightage": 1
+    }
+  },
+  "5": {
+    "Source of Chlorine": {
+      "Tonner": "Tonner/cylinder/"
+    }
+  },
+  "Design Capacity": {
+    "kg/hr": 1000,
+    "Weightage": 2
+  },
+  "6": {
+    "Inlet Liquid Chlorine Temperature": {
+      "°C": "ambient ",
+      "ambient/normal/room temp": "ambient/normal/room temp"
+    }
+  },
+  "7": {
+    "Inlet Liquid Chlorine Pressure": {
+      "bar (g)": "tonnner pressuure",
+      "based on source or controlled pressure": "based on source or controlled pressure"
+    }
+  },
+  "8": {
+    "Chlorine Pressure required @ vaporizer gas outlet": {
+      "bar (g)": "3Kg/cm2",
+      "output gas pressure from vaporizer": "output gas pressure from vaporizer"
+    }
+  },
+  "9": {
+    "Chlorine Temperature required @ vaporizer gas outlet": {
+      "°C": "Ammbient",
+      "output gas temp from vaporizer": "output gas temp from vaporizer",
+      "Weightage": 3
+    }
+  },
+  "10": {
+    "Heating media": {
+      "Steam": "steam/electric heater/electric heater - \nbased on customer availablity we have produce",
+      "Weightage": 4
+    }
+  },
+  "11": {
+    "Heating Fluid": {
+      "steam/water/oil/": "steam/water/oil/"
+    }
+  },
+  "12": {
+    "No. of tonners connected to the vaporizer system": {
+      "20": 20,
+      "based on source of chemical": "based on source of chemical"
+    }
+  },
+  "13": {
+    "Tonner Manifold arrangement required / Not required\nIf required provide No. of tonners working & standby": {
+      "Not required": "Not required",
+      "manifold already exist or need to be provide": "manifold already exist or need to be provide"
+    }
+  },
+  "14": {
+    "Instrument Specification (FLP or Non-FLP)": {
+      "FLP": "FLP",
+      "flamable ,hazodous info": "flamable ,hazodous info"
+    }
+  },
+  "15": {
+    "Electrical Panel Specification (FLP or Non-FLP)": {
+      "FLP": "FLP",
+      "flamable ,hazodous info": "flamable ,hazodous info"
+    }
+  },
+  "16": {
+    "Area classification - Hazardous or Non-Hazardous?": {
+      "Hazardouus": "Hazardouus",
+      "flamable ,hazodous info": "flamable ,hazodous info"
+    }
+  },
+  "17": {
+    "Bare vaporizer / Complete skid system with all instruments & Controls": {
+      "Complete Skid with all instrumments & controls": "Complete Skid with all instrumments & controls",
+      "system/individual component": "system/individual component",
+      "Weightage": 5
+    }
+  },
+  "18": {
+    "Provide Site layout / Flow Scheme": {
+      "surrounding layout info": "surrounding layout info",
+      "No": "No"
+    }
+  },
+  "19": {
+    "Tentative Month / Year of Finalization": {
+      "within week": "within week",
+      "deadline": "deadline"
+    }
+  },
+  "INITIAL ISSUE": {
+    "RK": "MRK",
+    "RSP": "20.08.2026",
+    "0": 0
+  },
+  "DESCRIPTION": {
+    "BY": "CHK",
+    "CHK": "APP",
+    "APP": "DATE",
+    "DATE": "REV"
+  }
+}
